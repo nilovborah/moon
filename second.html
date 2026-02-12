@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>My Valentine ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    min-height: 100vh;
+    padding: 40px 20px;
+    color: #333;
+    position: relative;
+    overflow-y: auto;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: url("hug.jpg") center/cover no-repeat;
+    opacity: 0.2;
+    z-index: -1;
+}
+
+.container {
+    background: #fff;
+    width: 100%;
+    max-width: 480px;
+    margin: auto;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+    animation: fadeIn 1.2s ease;
+}
+
+h1 { color: #e91e63; }
+
+button {
+    margin: 15px 10px;
+    padding: 12px 22px;
+    border-radius: 30px;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.yes { background: #e91e63; color: white; }
+.yes:hover { background: #c2185b; transform: scale(1.05); }
+
+.no { background: #f1f1f1; }
+
+.hidden { display: none; }
+
+.album { margin-top: 20px; }
+
+.photo-card {
+    width: 100%;
+    height: 380px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+}
+
+.photo-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.show-more {
+    background: #ff7eb3;
+    color: white;
+}
+.show-more:hover {
+    background: #e91e63;
+    transform: scale(1.05);
+}
+
+.love-text {
+    margin-top: 20px;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #444;
+}
+
+/* 🎁 Gift button */
+.gift-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #ff4f81;
+    color: white;
+    border-radius: 50%;
+    padding: 14px 18px;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    z-index: 999;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+.gift-btn:hover { transform: scale(1.1); }
+
+/* 🎀 Gift box */
+.gift-box {
+    margin-top: 25px;
+    padding: 20px;
+    border-radius: 15px;
+    background: #fff0f6;
+    animation: pop 0.5s ease;
+}
+
+.gift-box img {
+    width: 100%;
+    max-height: 220px;
+    object-fit: contain;
+}
+
+.gift-counter {
+    margin-top: 8px;
+    font-weight: bold;
+    color: #e91e63;
+}
+
+/* 🎊 Confetti */
+.confetti {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    top: -10px;
+    animation: fall 3s linear forwards;
+    z-index: 999;
+}
+
+@keyframes fall {
+    to { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pop {
+    from { transform: scale(0.7); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🎶 Music -->
+<audio id="bgMusic" loop>
+    <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="giftSound">
+    <source src="ding.mp3" type="audio/mpeg">
+</audio>
+
+<!-- 🎁 Gift Button -->
+<button class="gift-btn hidden" id="giftBtn" onclick="showGift()">🎁</button>
+
+<!-- PAGE 1 -->
+<div class="container" id="page1">
+    <h1>Happy Valentine’s Day 💘</h1>
+    <p>You make my world brighter just by being in it.</p>
+    <h2>Will you be my Valentine? 🌹</h2>
+    <button class="yes" onclick="openAlbum()">YES ❤️</button>
+    <button class="no">NO 🙈</button>
+</div>
+
+<!-- PAGE 2 -->
+<div class="container hidden" id="albumPage">
+    <h1>You Said YES 💖</h1>
+
+    <div class="album">
+        <div class="photo-card">
+            <img id="photo" src="s.jpeg">
+        </div>
+        <button onclick="prevPhoto()">⬅</button>
+        <button onclick="nextPhoto()">➡</button>
+    </div>
+
+    <button class="show-more" onclick="toggleMessage()">Show More 🙈</button>
+
+    <div id="loveMessage" class="love-text hidden">
+        YOU ARE THE BEST GIVE I HAVE EVER RECIEVE YOU MAKE MY HEART SMILE EVERYDAY.I FALL IN LOVE WIHT YOU WITH ALL MY HEART AND YOU YOU MAKE ME COMPLETE.THE BETTER HALF ,THE SPECIAL ONE,THE CONSTANT,THE HEARTBEAT.I LOVE YOU ALWAYS EVEN MORE WITH MORE LOVE AND RESPECT YOU BECAME THE PURPOSE OF LIVING.I WANT TO BE BYMYSIDE IN EACH AND EVERY STAGE OF MY LIFE STRONGER TOGETHER AND WILL HAVE A BETTER FUTURE.I LOVE YOUU MORE PUKU💕
+        WE ARE NOT TOGETHER THIS VALENTINE ALSO BUT WE WILL BE TOGETHER IN FUTURE IN EVERY VALETINE.YOU WILL BE MY FOREVER VALENTINE AND MY LOVE.WE ARE APART FOR EACH OTHER BUT I FEEL YOUR PRESENCE EVERYDAY EVERYSECOND.WE ARE MEAN TO BE TOGETHER WE WILL WE CAN WE WILL FIGHT FOR OUR RELATION, WE WILL GIVE OUR BEST AND 
+        I WILL ALWAYS STAND BY YOUR SIDE FOR YOUR ENTIRE LIFE AND MAKE YOU FEEL LOVE FROM EVERY SIDE.
+    </div>
+
+    <!-- 🎀 Gift Box -->
+    <div id="giftBox" class="gift-box hidden">
+        <img id="giftImage">
+        <div id="giftText"></div>
+        <div id="giftCounter" class="gift-counter"></div>
+    </div>
+
+    <p><strong>Forever with you,</strong><br>— Nilov 💌</p>
+</div>
+
+<script>
+const photos = ["s.jpeg","c.jpeg","hug.jpg","stand.jpg","a.jpg","b.jpeg","e.jpg","f.jpg"];
+let index = 0;
+
+function openAlbum(){
+    page1.classList.add("hidden");
+    albumPage.classList.remove("hidden");
+    giftBtn.classList.remove("hidden");
+    bgMusic.volume = 0.6;
+    bgMusic.play();
+    setInterval(nextPhoto,3000);
+}
+
+function nextPhoto(){ index=(index+1)%photos.length; photo.src=photos[index]; }
+function prevPhoto(){ index=(index-1+photos.length)%photos.length; photo.src=photos[index]; }
+
+function toggleMessage(){
+    loveMessage.classList.toggle("hidden");
+    loveMessage.scrollIntoView({behavior:"smooth"});
+}
+
+/* 🎁 Gifts */
+const gifts=[
+ {img:"download.jpg",text:"A rose for every smile 🌹"},
+ {img:"coco.jpg",text:"Sweet like you 🍫"},
+ {img:"teddy.jpg",text:"A virtual🧸,for my puu"},
+ {img:"hand.jpg",text:"One day… 💍will be mine forever"},
+  {img:"DUU.jpg",text:"A virtual kissi,but  in real soon..umuaaaaaah🎀"},
+
+ {img:"J.jpg",text:"BE MY VALETINE I WILL BE YOUR EVERY REASON TO LIVE❤️, BE MY HEARTBEAT TO MY HEART💌,BE MY SOUL,BE MY FAITH,BE MY DESTINY.I LOVEEEEEEEEEEEEEEEEEEEE YOUUUUUUUUUUUUUU SOOOOOOOOOOO MUCHHHHHHHHHHHHHHH."}
+];
+let g=0;
+
+function showGift(){
+    giftBox.classList.remove("hidden");
+    giftImage.src=gifts[g].img;
+    giftText.innerText=gifts[g].text;
+    giftCounter.innerText=`Gift ${g+1} of ${gifts.length}`;
+    giftSound.play();
+    confetti();
+    g=(g+1)%gifts.length;
+    giftBox.scrollIntoView({behavior:"smooth"});
+}
+
+function confetti(){
+    for(let i=0;i<25;i++){
+        let c=document.createElement("div");
+        c.className="confetti";
+        c.style.left=Math.random()*100+"vw";
+        c.style.background=["#ff4f81","#ffeb3b","#4caf50","#03a9f4"][Math.floor(Math.random()*4)];
+        document.body.appendChild(c);
+        setTimeout(()=>c.remove(),3000);
+    }
+}
+</script>
+
+</body>
+</html>
